@@ -1,7 +1,5 @@
 pipeline{
 
-    agent any
-
     environment {
         AWS_REGION = 'ap-south-1'
         AWS_CREDENTIALS_ID = 415007686326 
