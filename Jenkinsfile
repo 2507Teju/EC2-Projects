@@ -13,12 +13,6 @@ pipeline{
     }
 
     stages{
-        stage('Chekout'){
-            steps{
-                git branch: 'main',
-                url : ${env.GIT_URL}
-            }
-        }
         stage('Create EC2 Snapshot'){
             steps{
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "${env.AWS_CREDENTIALS_ID}"]]) {
