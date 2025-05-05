@@ -17,15 +17,13 @@ pipeline{
                 label 'master'
             }
             steps{
-                //git branch: 'main', url: 'https://github.com/2507Teju/EC2-Projects.git'
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "${env.AWS_CREDENTIALS_ID}"]]) {
                     sh '''
+                        withAWS(region:${AWS_REGION}, credentials:${AWS_CREDENTIALS_ID})
                         aws ec2 create-snapshot --volume-id vol-0a7ac2f49fb2eaeec --description "Snapshot of the root volume for i-0d67b8844817d4c3a"
 
                     '''
             }
         }
-    }
     }
 
     post{
