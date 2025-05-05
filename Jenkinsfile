@@ -15,6 +15,7 @@ pipeline{
     stages{
         stage('Chekout'){
             steps{
+                git branch: 'main',
                 url : ${env.GIT_URL}
             }
         }
