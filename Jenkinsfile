@@ -3,8 +3,8 @@ pipeline{
     agent any
 
     environment {
-        AWS_REGION = 'ap-south-1' // Change to your region
-        AWS_CREDENTIALS_ID = 415007686326 // ID of Jenkins stored credentials
+        AWS_REGION = 'ap-south-1'
+        AWS_CREDENTIALS_ID = 415007686326 
     }
 
     triggers{
