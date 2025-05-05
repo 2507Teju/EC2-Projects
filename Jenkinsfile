@@ -1,5 +1,9 @@
 pipeline{
 
+    agent{
+                label 'master'
+            }
+
     environment {
         AWS_REGION = 'ap-south-1'
         AWS_CREDENTIALS_ID = 415007686326 
@@ -11,9 +15,6 @@ pipeline{
 
     stages{
         stage('Create EC2 Snapshot'){
-            agent{
-                label 'master'
-            }
             steps{
                     sh '''
                         withAWS(region:${AWS_REGION}, credentials:${AWS_CREDENTIALS_ID})
