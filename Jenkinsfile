@@ -4,8 +4,7 @@ pipeline{
 
     environment {
         AWS_REGION = 'ap-south-1' // Change to your region
-        AWS_CREDENTIALS_ID = '415007686326' // ID of Jenkins stored credentials
-        GIT_URL = "https://github.com/2507Teju/EC2-Projects.git"
+        AWS_CREDENTIALS_ID = 415007686326 // ID of Jenkins stored credentials
     }
 
     triggers{
