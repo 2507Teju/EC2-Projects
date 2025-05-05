@@ -28,7 +28,7 @@ pipeline{
         success{
             echo "Snapshot created successfully"
         }
-        failue{
+        failure{
             echo "Snapshot creation failed"
         }
     }
