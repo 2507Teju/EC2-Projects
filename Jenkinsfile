@@ -5,6 +5,7 @@ pipeline{
     environment {
         AWS_REGION = 'ap-south-1' // Change to your region
         AWS_CREDENTIALS_ID = '415007686326' // ID of Jenkins stored credentials
+        GIT_URL = "https://github.com/2507Teju/EC2-Projects.git"
     }
 
     triggers{
@@ -12,6 +13,11 @@ pipeline{
     }
 
     stages{
+        stage('Chekout'){
+            steps{
+                url : ${env.GIT_URL}
+            }
+        }
         stage('Create EC2 Snapshot'){
             steps{
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "${env.AWS_CREDENTIALS_ID}"]]) {
