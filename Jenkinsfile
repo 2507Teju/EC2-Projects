@@ -8,11 +8,14 @@ pipeline{
     }
 
     triggers{
-        cron('H/2 * * * *')
+        cron('H/5 * * * *')
     }
 
     stages{
         stage('Create EC2 Snapshot'){
+            agent{
+                label 'slave3'
+            }
             steps{
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "${env.AWS_CREDENTIALS_ID}"]]) {
                     sh '''
